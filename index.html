@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="eo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sabin Maruhe — grafika dezajno, foto, video kaj ciferecaj spertoj.">
+  <title>Sabin Maruhe — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+  <header class="site-header">
+    <a class="brand" href="#home"><span class="brand-mark">SM</span><span>Sabin Maruhe</span></a>
+    <nav>
+      <a href="#home">Hejmo</a><a href="#about">Pri mi</a><a href="#services">Servoj</a>
+      <a href="#projects">Projektoj</a><a href="#contact">Kontakto</a>
+    </nav>
+    <div class="header-actions"><button id="langBtn" class="ghost-btn">EO</button><a class="admin-link" href="admin.html">Administrado</a></div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">KREA VIZIO • GOMA • D.R. KONGO</p>
+        <h1>Mi transformas <span>ideojn</span> en vidajn spertojn.</h1>
+        <p class="lead">Grafika dezajno, fotarto, video kaj ciferecaj spertoj kreitaj por doni al projektoj klaran kaj fortan identecon.</p>
+        <div class="hero-actions"><a class="btn primary" href="#projects">Vidi miajn verkojn <span>↗</span></a><a class="btn secondary" href="#contact">Parolu pri via projekto →</a></div>
+      </div>
+      <div class="hero-visual reveal delay-1">
+        <div class="profile-frame">
+          <div class="profile-placeholder"><strong id="profileInitials">SM</strong><small>Via profilfoto</small></div>
+          <div class="floating-card card-one">Krea<br><b>Studio</b></div>
+          <div class="floating-card card-two">Design<br><b>Motion</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head"><p class="eyebrow">01 — PRI MI</p><h2>Ideoj kun celo,<br><span>dezajno kun karaktero.</span></h2></div>
+      <div class="about-grid">
+        <p class="large-text">Mi estas <b>Sabin Maruhe</b>, kreiva profesiulo el Goma, pasia pri grafika komunikado, foto, video kaj ciferecaj projektoj.</p>
+        <div class="facts"><div><b>01</b><span>Grafika dezajno</span></div><div><b>02</b><span>Foto & Video</span></div><div><b>03</b><span>Multmedia</span></div><div><b>04</b><span>Ciferecaj spertoj</span></div></div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-head"><p class="eyebrow">02 — SERVOJ</p><h2>Kion mi povas<br><span>krei por vi.</span></h2></div>
+      <div class="service-grid">
+        <article><span>01</span><h3>Grafika dezajno</h3><p>Afiŝoj, emblemoj, ciferecaj subtenoj kaj vida komunikado.</p></article>
+        <article><span>02</span><h3>Foto & Video</h3><p>Bildoj kaj filmetoj kun zorgema vida rakonto kaj profesia etoso.</p></article>
+        <article><span>03</span><h3>Multmedia</h3><p>Ciferecaj projektoj, interagaj spertoj kaj enhavo por modernaj platformoj.</p></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head"><p class="eyebrow">03 — PROJEKTOJ</p><h2>Elektitaj <span>verkoj.</span></h2><p class="section-note">La projektoj sube estas administrataj de la privata administra spaco.</p></div>
+      <div id="projectGrid" class="project-grid"></div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="section-head"><p class="eyebrow">04 — KONTAKTO</p><h2>Ni laboru <span>kune.</span></h2><p>Ĉu vi havas krean, aŭdovizualan aŭ grafikan projekton? Sendu mesaĝon.</p></div>
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form">
+          <input id="senderName" required placeholder="Via nomo">
+          <input id="senderEmail" type="email" required placeholder="Via retpoŝto">
+          <textarea id="senderMessage" required rows="6" placeholder="Rakontu pri via projekto..."></textarea>
+          <button class="btn primary" type="submit">Sendi mesaĝon →</button>
+          <p id="formStatus" class="form-status"></p>
+        </form>
+        <div class="contact-info">
+          <div><span>Retpoŝto</span><b id="emailText">maruhesabin@gmail.com</b></div>
+          <div><span>Telefono / WhatsApp</span><b id="phoneText">0845360603</b></div>
+          <div><span>Loko</span><b id="locationText">Goma, Nord-Kivu, RDC</b></div>
+          <div id="socialLinks"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><span>© 2026 Sabin Maruhe</span><a href="admin.html">Admin</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>

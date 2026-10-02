@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="eo">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin — Sabin Maruhe</title><link rel="stylesheet" href="style.css"></head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section id="loginPanel" class="admin-login">
+      <a href="index.html" class="back-link">← Reveni al la retejo</a>
+      <p class="eyebrow">PRIVATE / ADMIN</p><h1>Administrada spaco</h1>
+      <p>Enigu vian pasvorton por administri la enhavon.</p>
+      <form id="loginForm"><input id="passwordInput" type="password" autocomplete="current-password" placeholder="Pasvorto" required><button class="btn primary">Ensaluti</button><p id="loginError" class="form-status"></p></form>
+      <small class="security-note">Noto: ĉi tiu ZIP estas sen-servila loka versio. Por vera publika sekureco necesas backend kaj vera aŭtentigo.</small>
+    </section>
+
+    <section id="dashboard" class="dashboard hidden">
+      <header class="dash-head"><div><p class="eyebrow">ADMINISTRADO</p><h1>Via portfolia centro</h1></div><button id="logoutBtn" class="btn secondary">Eliri</button></header>
+      <div class="savebar"><span id="saveState">Neniu nesavita ŝanĝo.</span><button id="saveBtn" class="btn primary">Konservi ŝanĝojn</button></div>
+      <div class="admin-grid">
+        <section class="panel"><h2>Profilo & kontakto</h2>
+          <label>Nomtago / nomo<input id="aName"></label><label>Retpoŝto<input id="aEmail"></label><label>Telefono / WhatsApp<input id="aPhone"></label><label>Loko<input id="aLocation"></label><label>Profilfoto<input id="profileFile" type="file" accept="image/*"></label>
+          <img id="profilePreview" class="preview-image" alt="Profilfoto antaŭrigardo">
+        </section>
+        <section class="panel"><h2>Aspekto</h2>
+          <label>Ĉefa koloro<input id="aAccent" type="color"></label><label>Fona koloro<input id="aBg" type="color"></label><label>Tiparo<select id="aFont"><option>Inter</option><option>Georgia</option><option>Arial</option><option>Trebuchet MS</option></select></label><label>Fona bildo<input id="bgFile" type="file" accept="image/*"></label><img id="bgPreview" class="preview-image" alt="Fona bildo antaŭrigardo"></section>
+        <section class="panel full"><div class="panel-title"><h2>Sociaj platformoj</h2><button id="addSocial" class="mini-btn">+ Aldoni</button></div><div id="socialEditor"></div></section>
+        <section class="panel full"><div class="panel-title"><h2>Projektoj</h2><button id="addProject" class="mini-btn">+ Nova projekto</button></div><div id="projectEditor"></div></section>
+        <section class="panel full"><h2>Ricevitaj mesaĝoj</h2><div id="messagesEditor"></div></section>
+        <section class="panel full"><h2>Pasvorto administranto</h2><p>Vi povas ŝanĝi la pasvorton post ensaluto.</p><div class="password-row"><input id="oldPassword" type="password" placeholder="Malnova pasvorto"><input id="newPassword" type="password" placeholder="Nova pasvorto"><button id="changePassword" class="btn secondary">Ŝanĝi</button></div><p id="passwordStatus" class="form-status"></p></section>
+      </div>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
