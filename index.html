@@ -1,128 +1,114 @@
 <!doctype html>
 <html lang="eo">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Sabin Maruhe — portfolio de grafika dezajno, fotarto, video kaj ciferecaj projektoj.">
-<meta name="theme-color" content="#08090d">
-<title>Sabin Maruhe — Portfolio</title><link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#009e60">
+  <meta name="description" content="Esperanto — lingvo de internacia kunlaboro, amikeco kaj kultura interŝanĝo. Kreita de Sabin Maruhe.">
+  <title>Esperanto Vivo — Sabin Maruhe</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="noise" aria-hidden="true"></div><div class="orb orb-a" aria-hidden="true"></div><div class="orb orb-b" aria-hidden="true"></div>
+  <div class="progress" id="progress"></div>
+  <div class="live-pill"><span class="live-dot"></span><span id="liveText">VIVANTA</span><b id="visitorCount">100+</b></div>
 
-<header class="site-header">
-  <a class="brand" href="#home" aria-label="Sabin Maruhe">
-    <span class="brand-mark">SM</span><span>Sabin Maruhe</span>
-  </a>
-  <nav id="mainNav" aria-label="Ĉefa navigado">
-    <a href="#home">Hejmo</a><a href="#about">Pri mi</a><a href="#services">Servoj</a><a href="#projects">Projektoj</a><a href="#contact">Kontakto</a>
-  </nav>
-  <div class="header-actions">
-    <a class="pill-link" href="#contact">Kunlaboru</a>
-    <a class="admin-link" href="admin.html">Administrado</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
-  </div>
-</header>
+  <header class="nav-wrap" id="top">
+    <nav class="nav glass" aria-label="Ĉefa navigado">
+      <a class="brand" href="#top" aria-label="Esperanto Vivo">
+        <img src="assets/logo.svg" alt="Verda stelo de Esperanto">
+        <span>ESPERANTO<span class="brand-accent">VIVO</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#pri">PRI</a><a href="#avantaĝoj">AVANTAĜOJ</a><a href="#historio">HISTORIO</a><a href="#komunumo">KOMUNUMO</a><a href="#kontakto">KONTAKTO</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="syncBtn" title="Sinkronigi enhavon">⟳ <span>SINKRONIGI</span></button>
+        <button class="icon-btn" id="adminBtn" title="Administrilo">⚙</button>
+        <button class="burger" id="burger" aria-label="Malfermi menuon">☰</button>
+      </div>
+    </nav>
+  </header>
 
-<main>
-<section id="home" class="hero section-pad">
-  <div class="hero-copy reveal">
-    <div class="eyebrow">VISUALA ARTISTO · FOTISTO · VIDEISTO · GRAFIKISTO</div>
-    <h1 id="heroTitle">Mi transformas <span>ideojn</span> en vidajn spertojn.</h1>
-    <p id="heroBio" class="lead">Grafika dezajno, fotarto, video kaj ciferecaj spertoj kreitaj por doni al projektoj klaran kaj fortan identecon.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#projects">Vidi miajn verkojn <span>↗</span></a>
-      <a class="btn secondary" href="#contact">Parolu pri via projekto <span>→</span></a>
+  <main>
+    <section class="hero section-grid">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="star">★</span> INTERNACIA KOMUNIKADO</div>
+        <h1 id="heroTitle">Unu lingvo.<br><span>Miloj da ligoj.</span></h1>
+        <p id="heroText">Esperanto kunigas homojn trans limoj per simpla ideo: ni povas komuniki, lerni kaj krei kune, respektante ĉiun kulturon.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#avantaĝoj">EKPLORU ESPERANTON <span>↗</span></a>
+          <a class="btn btn-ghost magnetic" href="#kontakto">KONTAKTU SABIN <span>→</span></a>
+        </div>
+        <div class="trust-row"><span>● SEN LIMOJ</span><span>● KULTURO</span><span>● KUNLABORO</span></div>
+      </div>
+      <div class="hero-orbit reveal">
+        <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+        <div class="planet"><span>★</span><small>ESPERANTO</small></div>
+        <div class="float-card c1">🌍 <b>120+</b><small>landoj</small></div>
+        <div class="float-card c2">💬 <b>unu</b><small>komuna lingvo</small></div>
+        <div class="float-card c3">✦ <b>1887</b><small>komenco</small></div>
+      </div>
+      <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0,80 C180,160 320,10 520,75 C720,145 830,25 1040,75 C1210,120 1310,40 1440,70 L1440,160 L0,160Z"/></svg></div>
+    </section>
+
+    <section id="pri" class="section split">
+      <div class="section-label">01 / PRI</div>
+      <div><p class="kicker">LINGVO POR KUNLABORO</p><h2 id="aboutTitle">Esperanto estas pli ol lingvo.<br><em>Ĝi estas ponto.</em></h2><p id="aboutText" class="lead">Ĝi donas al homoj el malsamaj landoj neŭtralan spacon por renkontiĝi. La celo ne estas anstataŭigi kulturajn lingvojn, sed aldoni komunan kanalon por internaciaj rilatoj.</p></div>
+    </section>
+
+    <section id="avantaĝoj" class="section benefits">
+      <div class="section-head"><div><p class="kicker">02 / AVANTAĜOJ</p><h2>Kial <span>lerni Esperanton?</span></h2></div><p class="muted">Malfermu novajn vojojn por lernado, amikeco kaj kultura interŝanĝo.</p></div>
+      <div class="cards" id="benefitCards">
+        <article class="card reveal"><span class="num">01</span><div class="card-icon">🧠</div><h3>Facila lernado</h3><p>Regula gramatiko kaj kohera vortfarado helpas komencantojn progresi paŝon post paŝo.</p></article>
+        <article class="card reveal"><span class="num">02</span><div class="card-icon">🌍</div><h3>Internacia reto</h3><p>Renkontu homojn el diversaj kulturoj kaj uzu lingvon konstruitan por internacia komunikado.</p></article>
+        <article class="card reveal"><span class="num">03</span><div class="card-icon">🎨</div><h3>Kultura diverseco</h3><p>Librojn, muzikon, filmojn kaj ideojn povas kunigi unu komunuma lingva spaco.</p></article>
+        <article class="card reveal"><span class="num">04</span><div class="card-icon">🤝</div><h3>Kunlaboro</h3><p>Projektu, studu kaj kreu kun aliaj homoj sen ke unu nacia lingvo estu la sola ponto.</p></article>
+      </div>
+    </section>
+
+    <section id="historio" class="section history">
+      <div class="section-label">03 / HISTORIO</div>
+      <div class="history-wrap"><div><p class="kicker">DE IDEO AL MONDA KOMUNUMO</p><h2>La vojaĝo de <span>Esperanto</span></h2></div>
+      <div class="timeline">
+        <div class="time-item"><b>1887</b><div><h3>La Unua Libro</h3><p>L. L. Zamenhof publikigas la fundamentan verkon de la nova lingvo.</p></div></div>
+        <div class="time-item"><b>1905</b><div><h3>Boulogne-sur-Mer</h3><p>La unua Universala Kongreso kunigas esperantistojn el pluraj landoj.</p></div></div>
+        <div class="time-item"><b>1954</b><div><h3>UNESKO</h3><p>Rezolucio agnoskas la atingojn de Esperanto kaj rekomendas rilatojn kun ĝia movado.</p></div></div>
+        <div class="time-item"><b>1985</b><div><h3>Nova rezolucio</h3><p>UNESKO denove substrekas la valoron de Esperanto por internaciaj kulturaj interŝanĝoj.</p></div></div>
+      </div></div>
+    </section>
+
+    <section id="komunumo" class="section community">
+      <div class="community-glow"></div><div class="community-inner"><p class="kicker">04 / KOMUNUMO</p><h2>Ĉiu konversacio povas fariĝi <span>ponto.</span></h2><p>La Esperanto-komunumo ekzistas en multaj landoj, kun kongresoj, kluboj, retaj kunvenoj, arto kaj edukaj projektoj.</p><div class="flag"><span></span><b>VERDA STELA KOLORARO</b></div></div>
+      <div class="people"><div class="avatar">SM</div><div class="avatar">ES</div><div class="avatar">🌍</div><div class="avatar">KA</div><div class="avatar">ZA</div><strong>100+<small>komunuma reto*</small></strong></div>
+      <small class="demo-note">* Vida elemento de la demonstraĵo; ĝi ne estas realtempa analizo de vizitantoj.</small>
+    </section>
+
+    <section id="kontakto" class="section contact">
+      <div class="contact-copy"><p class="kicker">05 / KONTAKTO</p><h2>Ni <span>parolu.</span></h2><p>Ĉu vi volas kunlabori, proponi projekton aŭ demandi ion pri Esperanto? Sendu mesaĝon.</p><div class="contact-data"><a id="phoneLink" href="tel:+243000000000">☎ +243 000 000 000</a><a id="emailLink" href="mailto:contacto@example.com">✉ contacto@example.com</a></div></div>
+      <form id="contactForm" class="contact-form"><label>Via retpoŝto<input id="formEmail" type="email" required placeholder="vi@ekzemplo.com"></label><label>Temo<input id="formSubject" required placeholder="Via temo"></label><label>Via mesaĝo<textarea id="formMessage" required rows="6" placeholder="Skribu vian mesaĝon..."></textarea></label><button class="btn btn-primary" type="submit">SENDI MESAĜON <span>↗</span></button><p id="formStatus" class="form-status"></p></form>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand"><img src="assets/logo.svg" alt=""> <span>ESPERANTO VIVO</span></div><p>© <span id="year"></span> Sabin Maruhe — Konstruita por lingva kaj kultura interŝanĝo.</p><a href="#top">SUPREN ↑</a></footer>
+
+  <dialog id="adminDialog" class="admin-dialog">
+    <div class="admin-shell">
+      <button class="close" id="closeAdmin">×</button>
+      <div id="loginPanel"><p class="kicker">ADMINISTRA CENTRO</p><h2>Bonvenon, Sabin.</h2><p>Enigu la administran pasvorton por redakti la publikan enhavon.</p><form id="loginForm"><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Pasvorto" required><button class="btn btn-primary" type="submit">ENIRI</button><p id="loginError" class="error"></p></form></div>
+      <div id="adminPanel" hidden><div class="admin-head"><div><p class="kicker">ADMINISTRILO</p><h2>Redaktu vian retejon</h2></div><button class="btn btn-ghost" id="logoutBtn">ELIRI</button></div>
+        <div class="admin-tabs"><button class="active" data-tab="content">ENHAVO</button><button data-tab="design">DESEGNO</button><button data-tab="contact">KONTAKTO</button><button data-tab="sync">SINKRONIGO</button></div>
+        <div class="tab" id="tab-content"><label>Ĉefa titolo<textarea data-key="heroTitle" rows="3"></textarea></label><label>Ĉefa mesaĝo<textarea data-key="heroText"></textarea></label><label>Pri — titolo<textarea data-key="aboutTitle"></textarea></label><label>Pri — teksto<textarea data-key="aboutText"></textarea></label><label>Lingvo de la publika enhavo<select id="languageMode"><option value="eo">Esperanto</option><option value="custom">Propra lingvo / redaktu per la kampoj</option></select></label></div>
+        <div class="tab" id="tab-design" hidden><label>Ĉefa verda koloro<input type="color" data-key="accent" value="#009e60"></label><label>Akcenta blua koloro<input type="color" data-key="accent2" value="#00d9ff"></label><label>Brila akcento<input type="color" data-key="accent3" value="#baff4a"></label><label>Moviĝnivelo<select data-key="motion"><option value="soft">Milda</option><option value="high">Alta</option><option value="off">Sen animacio</option></select></label></div>
+        <div class="tab" id="tab-contact" hidden><label>Telefonnumero<input data-key="phone" placeholder="+243 ..."></label><label>Retpoŝto<input data-key="email" placeholder="via@retpoŝto.com"></label><label>Teksto de la butono<input data-key="contactCta" placeholder="KONTAKTU SABIN"></label><p class="hint">Mesaĝoj senditaj per la formularo estas konservitaj en la mesaĝujo de ĉi tiu retumilo ĝis kiam vi eksportas ilin. Por vera tutmonda ricevo, konektu Supabase aŭ alian retan datumbazon.</p></div>
+        <div class="tab" id="tab-sync" hidden><div class="sync-box"><h3>Sinkronigo</h3><p>Ĉi tiu versio konservas ŝanĝojn en la retumilo. Uzu eksporton por transloki la agordon al alia aparato. Tutmonda sinkronigo postulas retan datumbazon.</p><div class="admin-actions"><button class="btn btn-primary" id="saveBtn">KONSERVI</button><button class="btn btn-ghost" id="exportBtn">EKSPORTI JSON</button><label class="file-btn">IMPORTI JSON<input type="file" id="importInput" accept="application/json"></label><button class="btn btn-danger" id="clearBtn">RESTAURI</button></div><p id="syncStatus" class="form-status"></p></div><div class="messages"><h3>Mesaĝoj ricevitaj</h3><div id="messagesList"></div></div></div>
+      </div>
     </div>
-    <div class="hero-trust"><span id="heroLocation">Goma · RDC</span><span>•</span><span>Krea laboro kun celo</span></div>
-  </div>
-  <div class="hero-visual reveal delay-1">
-    <div class="profile-frame">
-      <img id="profileImage" class="profile-image hidden" alt="Profilfoto de Sabin Maruhe" loading="eager">
-      <div id="profileFallback" class="profile-placeholder"><strong>SM</strong><small>Sabin Maruhe</small></div>
-      <div class="floating-card card-one">Krea<br><b>Studio</b></div>
-      <div class="floating-card card-two">Design<br><b>Motion</b></div>
-    </div>
-  </div>
-</section>
+  </dialog>
 
-<section id="about" class="section-pad section">
-  <div class="section-head reveal"><div class="eyebrow">01 — PRI MI</div><h2>Ideoj kun celo,<br><span>dezajno kun karaktero.</span></h2></div>
-  <div class="about-grid">
-    <p id="aboutBio" class="large-text reveal">Mi estas <b>Sabin Maruhe</b>, kreiva profesiulo pasia pri grafika komunikado, foto, video kaj ciferecaj projektoj.</p>
-    <div class="facts reveal delay-1">
-      <div><b>01</b><span>Grafika dezajno</span></div><div><b>02</b><span>Fotarto & Video</span></div>
-      <div><b>03</b><span>Multmedia</span></div><div><b>04</b><span>Retejo & ciferecaj spertoj</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section-pad section">
-  <div class="section-head reveal"><div class="eyebrow">02 — SERVOJ</div><h2>Kion mi povas<br><span>krei por vi.</span></h2></div>
-  <div class="service-grid">
-    <article class="service-card reveal"><span>01</span><h3>Grafika dezajno</h3><p>Identecoj, afiŝoj, emblemoj, komunikaj materialoj kaj cifereca vida lingvo.</p><a href="#contact" data-request="Grafika dezajno">Petu servon →</a></article>
-    <article class="service-card reveal delay-1"><span>02</span><h3>Fotarto & Video</h3><p>Fotado, videoproduktado kaj vida rakonto kun zorgema postproduktado.</p><a href="#contact" data-request="Fotarto / Video">Petu servon →</a></article>
-    <article class="service-card reveal delay-2"><span>03</span><h3>Retejo & Multmedia</h3><p>Portfolioj, interfacoj, ciferecaj spertoj kaj enhavo por modernaj platformoj.</p><a href="#contact" data-request="Retejo / Multmedia">Petu servon →</a></article>
-    <article class="service-card reveal"><span>04</span><h3>Formado & akompanado</h3><p>Praktika akompanado por homoj kaj teamoj kiuj volas progresi en plurmedia.</p><a href="#contact" data-request="Formado / Akompanado">Lernu pli →</a></article>
-  </div>
-</section>
-
-<section id="projects" class="section-pad section">
-  <div class="section-head reveal"><div class="eyebrow">03 — PROJEKTOJ</div><h2>Elektitaj <span>verkoj.</span></h2><p class="section-note">Ĉiu publikigita projekto havas almenaŭ 4 klarajn bildojn.</p></div>
-  <div id="categoryBar" class="category-bar"></div>
-  <div id="projectGrid" class="project-grid"></div>
-  <div id="emptyProjects" class="empty-state hidden">La publikigitaj projektoj aperos ĉi tie.</div>
-</section>
-
-<section id="collaborate" class="section-pad cta-section">
-  <div class="cta-card reveal">
-    <div><div class="eyebrow">KUNLABORU</div><h2>Ni konstruu ion<br><span>signifan kune.</span></h2><p>Subteno, kunlaboro, teamo, reta kunveno aŭ profesia akompanado — elektu tion, kio konvenas al via projekto.</p></div>
-    <div class="cta-actions"><a class="btn primary" href="#contact">Komenci konversacion →</a><a class="btn secondary" href="#contact" data-request="Subteni projekton">Subteni projekton</a></div>
-  </div>
-</section>
-
-<section id="newsletter" class="section-pad section">
-  <div class="newsletter-card reveal">
-    <div><div class="eyebrow">ĜISDATIGOJ</div><h2>Ricevu novajn <span>projektojn.</span></h2><p>Enigu vian retpoŝton por ricevi estontajn informojn de la portfolio.</p></div>
-    <form id="newsletterForm" class="newsletter-form">
-      <input id="subscriberEmail" type="email" maxlength="320" required placeholder="Via retpoŝto" autocomplete="email" aria-label="Via retpoŝto">
-      <button class="btn primary" type="submit">Aboni <span>→</span></button>
-      <p id="newsletterStatus" class="form-status"></p>
-    </form>
-  </div>
-</section>
-
-<section id="contact" class="section-pad section">
-  <div class="section-head reveal"><div class="eyebrow">04 — KONTAKTO</div><h2>Ni laboru <span>kune.</span></h2><p>Elektu la tipon de via peto kaj sendu mesaĝon. La mesaĝo estos konservita en la administra spaco.</p></div>
-  <div class="contact-grid">
-    <form id="contactForm" class="contact-form reveal">
-      <input id="senderName" required maxlength="120" placeholder="Via nomo" autocomplete="name">
-      <input id="senderEmail" required type="email" maxlength="320" placeholder="Via retpoŝto" autocomplete="email">
-      <select id="requestType">
-        <option>Kontakto</option><option>Kunlaboro</option><option>Subteni projekton</option><option>Aliĝi al la teamo</option>
-        <option>Renkontiĝo Zoom / Google Meet</option><option>Formado en plurmedia</option><option>Akompanado de projekto</option>
-      </select>
-      <textarea id="senderMessage" required maxlength="5000" rows="7" placeholder="Rakontu pri via projekto..."></textarea>
-      <button class="btn primary" type="submit">Sendi mesaĝon <span>→</span></button>
-      <p id="formStatus" class="form-status" role="status"></p>
-    </form>
-    <aside class="contact-info reveal delay-1">
-      <div><span>Retpoŝto</span><b id="emailText">maruhesabin@gmail.com</b></div>
-      <div><span>Telefono / WhatsApp</span><b id="phoneText">0845360603</b></div>
-      <div><span>Loko</span><b id="locationText">Goma, Nord-Kivu, RDC</b></div>
-      <div id="socialLinks" class="social-links"></div>
-    </aside>
-  </div>
-</section>
-</main>
-
-<footer><span>© <span id="year"></span> Sabin Maruhe</span><span>Farita kun vizio · Esperanto</span></footer>
-<script src="supabase-config.js"></script>
-<script src="assets/supabase.min.js"></script>
-<script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
