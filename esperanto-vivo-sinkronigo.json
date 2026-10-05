@@ -1,0 +1,17 @@
+{
+  "config": {
+    "heroTitle": "Unu lingvo.<br><span>Miloj da ligoj.</span>",
+    "heroText": "Esperanto kunigas homojn trans limoj per simpla ideo: ni povas komuniki, lerni kaj krei kune, respektante ĉiun kulturon.",
+    "aboutTitle": "Esperanto estas pli ol lingvo.<br><em>Ĝi estas ponto.</em>",
+    "aboutText": "Ĝi donas al homoj el malsamaj landoj neŭtralan spacon por renkontiĝi. La celo ne estas anstataŭigi kulturajn lingvojn, sed aldoni komunan kanalon por internaciaj rilatoj.",
+    "phone": "+243845360603",
+    "email": "maruhesabin@gmail.com",
+    "contactCta": "KONTAKTU  nin",
+    "accent": "#009e60",
+    "accent2": "#00d9ff",
+    "accent3": "#baff4a",
+    "motion": "soft"
+  },
+  "messages": [],
+  "exportedAt": "2026-10-04T08:12:02.141Z"
+}

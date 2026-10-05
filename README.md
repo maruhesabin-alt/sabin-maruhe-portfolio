@@ -1,51 +1,44 @@
-# ESPERANTO VIVO — Premium / Sabin Maruhe
+# SABIN MARUHE — Krea Portfolio / Esperanto
 
-Retejo en Esperanto kun animacioj, verda stelo, administra panelo, kontakta formularo kaj loka sinkronigo.
+## Komenci per VS Code + Live Server
 
-## 1. Lanĉi per VS Code
+1. Malzipigu la dosierujon.
+2. Malfermu `portfolio_espero_premium` en Visual Studio Code.
+3. Instalu/uzu **Live Server**.
+4. Dekstre alklaku `index.html` → **Open with Live Server**.
+5. La retejo malfermiĝos en via retumilo.
 
-Malfermu ĉi tiun dosierujon en VS Code kaj uzu Live Server, aŭ rulu ĝin per simpla statika servilo.
+## Inkluditaj funkcioj
 
-## 2. Administrilo
+- 100 % Esperanto-interfaco.
+- Premium malhela UI.
+- Responsive por telefono, tablojdo kaj komputilo.
+- Animacioj kaj micro-interactions.
+- Portfolio kun filtrado.
+- Projekto-modaloj.
+- Sekcio por projektoj en progreso.
+- Servoj / kapabloj.
+- Procezo de kunlaboro.
+- Formulario "Ni realigu projekton kune".
+- Volontula kontribuo-kampo.
+- Lokaj petoj konservitaj en `localStorage` por demo.
+- Administra panelo.
+- Demo-administra kodo: `9811702344`.
 
-Alklaku **SINKRONIGI** aŭ la ilaron ⚙. La administra pasvorto en ĉi tiu demonstraĵo estas:
+## GRAVA antaŭ vera publikigo
 
-`KUNLABORADU#2020`
+Ĉi tiu versio estas frontend-demo. La administra kodo kaj petoj estas en la retumila JavaScript/localStorage. **Ne uzu tion kiel realan sekurecon.**
 
-La panelo permesas ŝanĝi:
-- ĉefajn titolojn kaj mesaĝojn;
-- kolorojn;
-- nivelon de animacioj;
-- telefonnumeron;
-- retpoŝton;
-- kontaktaĵan butonon;
-- eksporton/importon de la agordo;
-- ricevajn mesaĝojn de la formularo.
+Por produktado:
+- konekti Supabase/Firebase;
+- uzi veran aŭtentikigon;
+- konservi administrajn sekretojn nur ĉe servilo;
+- aldoni sekuran datumbazon;
+- aldoni dosier-stokadon;
+- aldoni spam/rate-limit protekton;
+- konekti realan retpoŝton/WhatsApp;
+- poste paki la PWA per Web → App / Capacitor.
 
-## 3. Grava pri vera tutmonda sinkronigo
+## Anstataŭigi la projektajn bildojn
 
-Ĉi tiu ZIP estas **statika kaj tuj funkcianta**. La administraj ŝanĝoj estas konservataj en `localStorage`, do ili ne estas aŭtomate videblaj sur ĉiuj aparatoj.
-
-Por ke Sabin faru ŝanĝon unufoje kaj ĉiuj vizitantoj en la mondo ricevu ĝin, oni devas konekti la administrilon al reta datumbazo (ekzemple Supabase) aŭ al alia sekura backend. La ZIP estas preparita por tiu sekva paŝo.
-
-Ne metu sekretajn backendajn ŝlosilojn en la front-end JavaScript.
-
-## 4. GitHub → Vercel
-
-1. Kreu novan GitHub-repozitorion.
-2. Alŝutu ĉiujn dosierojn de ĉi tiu dosierujo.
-3. En Vercel elektu la GitHub-repozitorion.
-4. Por ĉi tiu statika versio ne necesas build command.
-5. Deploy.
-
-## 5. Kontakta formularo
-
-En la nuna statika versio la formularo konservas mesaĝojn en la sama retumilo. Por vera ricevado de mesaĝoj en la administra panelo de ie ajn, konektu ĝin al Supabase, Formspree, Resend aŭ via propra backend.
-
-## 6. Lingvoj
-
-La publika retejo estas Esperanto-unua. La enhavkampoj en la administrilo povas esti anstataŭigitaj per tradukoj. Por vera regiona lingvoŝanĝo, aldonu apartan tradukobjekton por ĉiu lingvo kaj konservu la elekton per `localStorage` aŭ backend.
-
-## Sekureca noto
-
-La pasvorto en ĉi tiu demonstraĵo estas nur por la loka admin UI. Ĝi **ne estas vera sekura aŭtentikigo**. Por produktado, uzu Supabase Auth aŭ alian serverflankan aŭtentikigon kaj konservu neniun administran sekreton en la klienta kodo.
+La demo uzas CSS-artaĵojn por esti tuj videbla sen eksteraj dosieroj. Poste oni povas aldoni realajn JPG/PNG/videojn kaj konekti ilin al la Admin-panelo.

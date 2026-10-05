@@ -1,295 +1,117 @@
-(() => {
-  'use strict';
+/* SABIN MARUHE — PORTFOLIO / ADMIN V2 */
+const ADMIN_CODE="9811702344";
 
-  const cfg = window.SUPABASE_CONFIG || {};
-  const ready = Boolean(
-    cfg.url && cfg.anonKey &&
-    !String(cfg.url).includes('YOUR-PROJECT') &&
-    !String(cfg.anonKey).includes('YOUR_SUPABASE')
-  );
-  const sb = ready && window.supabase ? window.supabase.createClient(cfg.url, cfg.anonKey) : null;
-  const $ = (id) => document.getElementById(id);
+const defaultContent={
+  heroTitle:"Ni donu formon al viaj ideoj.",
+  heroText:"Grafika dezajno, video, foto, retejoj kaj ciferecaj spertoj — kreitaj kun zorgo, karaktero kaj klara celo.",
+  collabTitle:"Ni realigu projekton kune.",
+  collabText:"Ĉu vi havas ideon? Rakontu ĝin. La kunlaboro estas proponata senpage; volontula kontribuo povas helpi subteni la teknikajn kostojn, ekipaĵon, Interreton kaj teamon."
+};
+const defaultSettings={accent:"#caff38",animations:true,glass:true,live:true};
+const defaultProjects=[
+ {title:'PORTRETO / 026',cat:'photo',catLabel:'Fotografio',desc:'Portreta serio kaj fotografia prezento.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/portrait/_MG_9963.jpg\')"},
+ {title:'BEMI EN AFRIKO',cat:'design',catLabel:'Grafika dezajno',desc:'Vida identeco kaj komunikaj materialoj por BEMI en Afriko.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/bemi/bemi.jpg\')"},
+ {title:'DIGITALA KREAĴO',cat:'design',catLabel:'Krea dezajno',desc:'Persona kreiva kaj teknologia bildo por prezento.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/digital/digital.jpg\')"},
+ {title:'EBOLA KAMPANJO',cat:'design',catLabel:'Kampanja dezajno',desc:'Informkampanjo kaj socia konsciigo kun forta vida mesaĝo.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/ebola/ebola.jpg\')"},
+ {title:'GOGA KARANGA',cat:'design',catLabel:'Branding',desc:'Etikedo kaj marka prezento por produkto.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/goga/goga-karanga.jpg\')"},
+ {title:'ETIMARKI GRAPHIX ACADEMY',cat:'design',catLabel:'Grafika dezajno',desc:'Promocia afiŝo por profesia grafika dezajna trejnado.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/graphix/graphix.jpg\')"},
+ {title:'SALONGO SPECIAL',cat:'design',catLabel:'Kampanja dezajno',desc:'Eventa afiŝo pri pureco, medio kaj komunuma agado.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/salongo/salongo.jpg\')"},
+ {title:'UEA BRANDING',cat:'design',catLabel:'Branding',desc:'Identeco kaj aplikoj de Universala Esperanto-Asocio.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/uea/uea.png\')"},
+ {title:'TEJO BRANDING',cat:'design',catLabel:'Branding',desc:'Identeco kaj aplikoj de Tutmonda Esperantista Junulara Organizo.',tags:["Portfolio","Projet"],image:"url(\'images/projets-realises/tejo/tejo.png\')"}
+];
 
-  const fallback = {
-    name: 'Sabin Maruhe',
-    email: 'maruhesabin@gmail.com',
-    phone: '0845360603',
-    location: 'Goma, Nord-Kivu, RDC',
-    bio: 'Mi estas Sabin Maruhe, kreiva profesiulo pasia pri grafika komunikado, foto, video kaj ciferecaj projektoj.',
-    tagline: 'Mi transformas ideojn en vidajn spertojn.',
-    accent: '#dfff3f',
-    background: '#08090d',
-    font: 'Inter'
-  };
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}};
+let content=load("sabin_content",defaultContent);
+let settings=load("sabin_settings",defaultSettings);
+let projects=load("sabin_projects",defaultProjects);
 
-  let settings = { ...fallback };
-  let socials = [];
-  let projects = [];
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
-  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (m) => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-  }[m]));
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function applyContent(){
+  const h=$(".hero-copy h1"); if(h) h.innerHTML=esc(content.heroTitle).replace(/\s(formon|formo)\s/i,m=>` <em>${m.trim()}</em>`);
+  const ht=$(".hero-text"); if(ht) ht.textContent=content.heroText;
+  const ct=$(".collab-copy h2"); if(ct) ct.textContent=content.collabTitle;
+  const cp=$(".collab-copy>p:not(.eyebrow)"); if(cp) cp.textContent=content.collabText;
+}
+function applySettings(){
+ document.documentElement.style.setProperty("--accent",settings.accent);
+ document.documentElement.style.setProperty("--accent-soft",settings.accent+"22");
+ document.body.classList.toggle("reduced-effects",!settings.animations);
+ document.body.classList.toggle("no-glass",!settings.glass);
+ $(".pulse")?.classList.toggle("disabled",!settings.live);
+}
+applyContent(); applySettings();
 
-  function applyTheme() {
-    document.documentElement.style.setProperty('--accent', settings.accent || fallback.accent);
-    document.documentElement.style.setProperty('--bg', settings.background || fallback.background);
-    document.body.style.fontFamily = `${settings.font || 'Inter'}, Inter, system-ui, sans-serif`;
-    if (settings.background_image) {
-      document.body.style.backgroundImage =
-        `linear-gradient(rgba(8,9,13,.78),rgba(8,9,13,.96)),url("${esc(settings.background_image)}")`;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundAttachment = 'fixed';
-    }
-  }
+let visible=6,currentFilter="all";
+const grid=$("#projectGrid");
+function renderProjects(){
+ const list=projects.filter(p=>currentFilter==="all"||p.cat===currentFilter).slice(0,visible);
+ grid.innerHTML=list.map((p,i)=>`<article class="project-card reveal visible" data-project="${projects.indexOf(p)}">
+  <div class="project-image" style="background-image:${p.image}"></div>
+  <div class="project-overlay"><span class="project-cat">${esc(p.catLabel)}</span><h3 class="project-title">${esc(p.title)}</h3><p class="project-desc">${esc(p.desc)}</p></div>
+  <div class="project-arrow">↗</div></article>`).join("");
+ $$(".project-card").forEach(c=>c.onclick=()=>openProject(+c.dataset.project));
+}
+renderProjects();
 
-  function renderProfile() {
-    const title = settings.tagline || fallback.tagline;
-    const words = title.split(' ');
-    const highlighted = words.slice(Math.max(0, words.length - 2)).join(' ');
-    const prefix = words.slice(0, Math.max(0, words.length - 2)).join(' ');
-    $('heroTitle').innerHTML = prefix
-      ? `${esc(prefix)} <span>${esc(highlighted)}</span>`
-      : `<span>${esc(title)}</span>`;
+$$(".filter").forEach(btn=>btn.onclick=()=>{$$(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentFilter=btn.dataset.filter;visible=6;renderProjects();$("#loadMore").style.display=projects.filter(p=>currentFilter==="all"||p.cat===currentFilter).length>6?"":"none"});
+$("#loadMore")?.addEventListener("click",()=>{visible=projects.length;renderProjects();$("#loadMore").style.display="none"});
 
-    $('heroBio').textContent = settings.bio || fallback.bio;
-    const bio = String(settings.bio || fallback.bio).replace(/^Mi estas[^,]*,\s*/i, '');
-    $('aboutBio').innerHTML = `Mi estas <b>${esc(settings.name || fallback.name)}</b>, ${esc(bio)}`;
-    $('emailText').textContent = settings.email || fallback.email;
-    $('phoneText').textContent = settings.phone || fallback.phone;
-    $('locationText').textContent = settings.location || fallback.location;
-    $('heroLocation').textContent = String(settings.location || fallback.location).replace(', Nord-Kivu, RDC', ' · RDC');
+function openProject(i){
+ const p=projects[i];$("#modalImage").style.backgroundImage=p.image;$("#modalCategory").textContent=p.catLabel;$("#modalTitle").textContent=p.title;$("#modalDescription").textContent=p.desc;$("#modalTags").innerHTML=p.tags.map(t=>`<span>${esc(t)}</span>`).join("");$("#projectModal").classList.add("open");document.body.style.overflow="hidden";
+}
+$$("[data-close]").forEach(x=>x.onclick=()=>{$("#projectModal").classList.remove("open");document.body.style.overflow=""});
 
-    if (settings.profile_image) {
-      $('profileImage').src = settings.profile_image;
-      $('profileImage').classList.remove('hidden');
-      $('profileFallback').classList.add('hidden');
-    }
-  }
+const header=$(".site-header"); addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>30));
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12}); $$(".reveal").forEach(e=>observer.observe(e));
+$(".menu-toggle")?.addEventListener("click",()=>$("#nav").classList.toggle("open")); $$("#nav a").forEach(a=>a.onclick=()=>$("#nav").classList.remove("open"));
+document.addEventListener("mousemove",e=>{const g=$(".cursor-glow");if(g){g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"}});
+$$(".magnetic").forEach(b=>{b.onmousemove=e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`};b.onmouseleave=()=>b.style.transform=""});
 
-  function renderSocials() {
-    $('socialLinks').innerHTML = socials.length
-      ? socials.map((s) => `<a class="btn secondary" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a>`).join('')
-      : '';
-  }
+const form=$("#projectForm");
+form?.addEventListener("submit",e=>{
+ e.preventDefault();const data=Object.fromEntries(new FormData(form).entries());data.date=new Date().toLocaleString("eo");const req=load("sabin_requests",[]);req.unshift(data);save("sabin_requests",req);form.reset();showToast();updateRequestCount();
+});
+function showToast(){const t=$("#toast");t.classList.add("show");setTimeout(()=>t.classList.remove("show"),4000)}
+function updateRequestCount(){const n=load("sabin_requests",[]).length; if($("#requestCount"))$("#requestCount").textContent=n;if($("#statRequests"))$("#statRequests").textContent=n}
 
-  function renderCategories(active = 'ĈIO') {
-    const categories = ['ĈIO', 'GRAFIKA DESIGNO', 'FOTOGRAFIO', 'VIDEO', 'CINEMO', 'WEB', 'PROJEKTOJ'];
-    const bar = $('categoryBar');
-    bar.innerHTML = categories.map((c) =>
-      `<button type="button" class="filter-btn ${c === active ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`
-    ).join('');
+const adminModal=$("#adminModal"),dashboard=$("#dashboard");
+$("#adminLink")?.addEventListener("click",e=>{e.preventDefault();adminModal.classList.add("open")});
+$$("[data-admin-close]").forEach(x=>x.onclick=()=>adminModal.classList.remove("open"));
+$("#adminEnter")?.addEventListener("click",()=>{
+ if($("#adminCode").value===ADMIN_CODE){adminModal.classList.remove("open");dashboard.classList.add("open");document.body.style.overflow="hidden";loadAdmin()}
+ else $("#adminCode").animate([{transform:"translateX(-5px)"},{transform:"translateX(5px)"},{transform:"translateX(0)"}],{duration:250});
+});
+$("#closeDashboard")?.addEventListener("click",()=>{dashboard.classList.remove("open");document.body.style.overflow=""});
 
-    bar.querySelectorAll('[data-cat]').forEach((button) => {
-      button.addEventListener('click', () => {
-        renderCategories(button.dataset.cat);
-        renderProjects(button.dataset.cat);
-      });
-    });
-  }
+function loadAdmin(){
+ $("#editHeroTitle").value=content.heroTitle;$("#editHeroText").value=content.heroText;$("#editCollabTitle").value=content.collabTitle;$("#editCollabText").value=content.collabText;
+ $("#editAccent").value=settings.accent; renderAdminProjects();renderRequests();updateRequestCount();
+}
+$("#saveContent")?.addEventListener("click",()=>{content={heroTitle:$("#editHeroTitle").value,heroText:$("#editHeroText").value,collabTitle:$("#editCollabTitle").value,collabText:$("#editCollabText").value};save("sabin_content",content);applyContent();alert("Enhavo konservita.")});
+$("#saveSettings")?.addEventListener("click",()=>{settings.accent=$("#editAccent").value;save("sabin_settings",settings);applySettings();alert("Agordoj konservitaj.")});
 
-  function projectImages(project) {
-    return [...(project.project_images || [])].sort(
-      (a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0)
-    );
-  }
+function renderAdminProjects(){
+ const box=$("#adminProjects");if(!box)return;
+ box.innerHTML=projects.map((p,i)=>`<div class="admin-project-row">
+ <input data-p-title="${i}" value="${esc(p.title)}"><select data-p-cat="${i}"><option value="design">Dezajno</option><option value="video">Video</option><option value="photo">Foto</option><option value="web">Retejo</option></select>
+ <input data-p-img="${i}" value="${esc(p.image)}"><button class="delete-project" data-del="${i}">×</button></div>`).join("");
+ projects.forEach((p,i)=>{const cat=$(`[data-p-cat="${i}"]`);if(cat)cat.value=p.cat});
+ $$("[data-p-title]").forEach(el=>el.onchange=()=>{projects[+el.dataset.pTitle].title=el.value;save("sabin_projects",projects);renderProjects()});
+ $$("[data-p-cat]").forEach(el=>el.onchange=()=>{projects[+el.dataset.pCat].cat=el.value;projects[+el.dataset.pCat].catLabel={design:"Grafika dezajno",video:"Video",photo:"Fotografio",web:"Retejo"}[el.value];save("sabin_projects",projects);renderProjects()});
+ $$("[data-p-img]").forEach(el=>el.onchange=()=>{projects[+el.dataset.pImg].image=el.value;save("sabin_projects",projects);renderProjects()});
+ $$("[data-del]").forEach(el=>el.onclick=()=>{projects.splice(+el.dataset.del,1);save("sabin_projects",projects);renderAdminProjects();renderProjects()});
+}
+$("#addAdminProject")?.addEventListener("click",()=>{projects.push({title:"NOVA PROJEKTO",cat:"design",catLabel:"Grafika dezajno",desc:"Nova projekto.",tags:["Nova"],image:"linear-gradient(135deg,#151a22,#27311d,#caff38)"});save("sabin_projects",projects);renderAdminProjects();renderProjects()});
 
-  function renderProjects(category = 'ĈIO') {
-    const list = category === 'ĈIO'
-      ? projects
-      : projects.filter((p) => String(p.category || '').toUpperCase() === category);
-
-    const grid = $('projectGrid');
-    $('emptyProjects').classList.toggle('hidden', list.length > 0);
-
-    grid.innerHTML = list.map((p) => {
-      const imgs = projectImages(p);
-      const cover = imgs[0]?.public_url;
-      return `<article class="project-card reveal in" data-project="${esc(p.id)}">
-        <div class="project-media">
-          ${cover
-            ? `<img src="${esc(cover)}" alt="${esc(imgs[0]?.alt_text || p.title)}" loading="lazy" decoding="async">`
-            : '<div class="media-fallback">SM</div>'}
-          <span class="project-count">${imgs.length} bild${imgs.length === 1 ? 'o' : 'oj'}</span>
-        </div>
-        <div class="project-info">
-          <div class="project-meta"><span>${esc(p.category)}</span><span>${esc(p.collaborators || '')}</span></div>
-          <h3>${esc(p.title)}</h3>
-          <p>${esc(p.description)}</p>
-          <button type="button" class="text-link" data-open="${esc(p.id)}">Vidi la projekton →</button>
-        </div>
-      </article>`;
-    }).join('');
-
-    grid.querySelectorAll('[data-open]').forEach((button) => {
-      button.addEventListener('click', () => openProject(button.dataset.open));
-    });
-  }
-
-  function openProject(id) {
-    const project = projects.find((p) => p.id === id);
-    if (!project) return;
-
-    const imgs = projectImages(project);
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.innerHTML = `<div class="modal-inner">
-      <button type="button" class="modal-close" aria-label="Fermi">×</button>
-      <div class="eyebrow">${esc(project.category)}</div>
-      <h2>${esc(project.title)}</h2>
-      <p>${esc(project.description)}</p>
-      <div class="modal-gallery">
-        ${imgs.map((im) => `<img src="${esc(im.public_url)}" alt="${esc(im.alt_text || project.title)}" loading="lazy" decoding="async">`).join('')}
-      </div>
-      ${project.collaborators ? `<p class="muted"><b>Kunlaborantoj:</b> ${esc(project.collaborators)}</p>` : ''}
-      <a class="btn primary modal-contact" href="#contact">Kontakti pri ĉi tiu projekto →</a>
-    </div>`;
-
-    document.body.appendChild(modal);
-    document.body.classList.add('modal-open');
-    const close = () => { modal.remove(); document.body.classList.remove('modal-open'); };
-    modal.querySelector('.modal-close').addEventListener('click', close);
-    modal.addEventListener('click', (event) => { if (event.target === modal) close(); });
-    modal.querySelector('.modal-contact').addEventListener('click', close);
-  }
-
-  function observe() {
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
-  }
-
-  async function load() {
-    if (!sb) {
-      renderCategories();
-      renderProjects();
-      renderProfile();
-      renderSocials();
-      $('formStatus').textContent = 'Agordu Supabase por aktivigi la tutmondan enhavon.';
-      $('newsletterStatus').textContent = 'Agordu Supabase por aktivigi abonadon.';
-      observe();
-      return;
-    }
-
-    try {
-      const [settingsRes, socialRes, projectRes] = await Promise.all([
-        sb.from('site_settings').select('*').eq('id', 1).maybeSingle(),
-        sb.from('social_links').select('*').order('sort_order', { ascending: true }),
-        sb.from('projects').select('*,project_images(*)').eq('published', true).order('created_at', { ascending: false })
-      ]);
-
-      if (settingsRes.error) console.warn('site_settings:', settingsRes.error);
-      if (socialRes.error) console.warn('social_links:', socialRes.error);
-      if (projectRes.error) console.warn('projects:', projectRes.error);
-
-      if (settingsRes.data) settings = { ...settings, ...settingsRes.data };
-      socials = socialRes.data || [];
-      projects = projectRes.data || [];
-
-      applyTheme();
-      renderProfile();
-      renderSocials();
-      renderCategories();
-      renderProjects();
-      observe();
-    } catch (error) {
-      console.error(error);
-      $('formStatus').textContent = 'Ne eblas ŝargi la datumojn nun.';
-    }
-  }
-
-  async function sendMessage(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const status = $('formStatus');
-    const payload = {
-      name: $('senderName').value.trim(),
-      email: $('senderEmail').value.trim(),
-      request_type: $('requestType').value,
-      message: $('senderMessage').value.trim()
-    };
-
-    if (!sb) {
-      status.textContent = 'La formularo bezonas konektitan Supabase.';
-      return;
-    }
-
-    status.textContent = 'Sendante…';
-    const { error } = await sb.from('messages').insert(payload);
-    if (error) {
-      console.error(error);
-      status.textContent = 'Ne eblis sendi la mesaĝon. Provu denove.';
-      return;
-    }
-    status.textContent = 'Mesaĝo sendita. Dankon!';
-    form.reset();
-  }
-
-  async function subscribe(event) {
-    event.preventDefault();
-    const email = $('subscriberEmail').value.trim().toLowerCase();
-    const status = $('newsletterStatus');
-
-    if (!sb) {
-      status.textContent = 'Abonado bezonas konektitan Supabase.';
-      return;
-    }
-
-    status.textContent = 'Registrante…';
-    const { error } = await sb.from('subscribers').insert({ email });
-    if (error && error.code !== '23505') {
-      console.error(error);
-      status.textContent = 'Ne eblis registri la retpoŝton.';
-      return;
-    }
-    status.textContent = '✓ Vi estas abonita.';
-    $('newsletterForm').reset();
-  }
-
-  function bind() {
-    $('year').textContent = new Date().getFullYear();
-
-    $('menuBtn').addEventListener('click', () => {
-      const nav = $('mainNav');
-      const open = nav.classList.toggle('open');
-      $('menuBtn').setAttribute('aria-expanded', String(open));
-    });
-
-    document.querySelectorAll('#mainNav a').forEach((a) => {
-      a.addEventListener('click', () => {
-        $('mainNav').classList.remove('open');
-        $('menuBtn').setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.querySelectorAll('[data-request]').forEach((link) => {
-      link.addEventListener('click', () => {
-        const request = link.dataset.request;
-        const select = $('requestType');
-        const option = [...select.options].find((o) => o.text === request);
-        if (option) select.value = option.value;
-      });
-    });
-
-    $('contactForm').addEventListener('submit', sendMessage);
-    $('newsletterForm').addEventListener('submit', subscribe);
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') document.querySelector('.modal')?.remove();
-    });
-  }
-
-  bind();
-  load();
-})();
+function renderRequests(){
+ const box=$("#requestList");if(!box)return;const req=load("sabin_requests",[]);
+ box.innerHTML=req.length?req.map((r,i)=>`<article class="request-item"><strong>${esc(r.firstname)} ${esc(r.lastname)}</strong><small>${esc(r.email)} · ${esc(r.country)} · ${esc(r.service)} · ${esc(r.duration)}</small><p>${esc(r.message)}</p><small>Kontribuo: $${esc(r.contribution||"0")} · ${esc(r.date)}</small><button class="delete-request" data-r="${i}">Forigi</button></article>`).join(""):`<div class="admin-note">Ankoraŭ neniu kunlaborpeto.</div>`;
+ $$(".delete-request").forEach(b=>b.onclick=()=>{const a=load("sabin_requests",[]);a.splice(+b.dataset.r,1);save("sabin_requests",a);renderRequests();updateRequestCount()});
+}
+$$(".dash-tab").forEach(btn=>btn.onclick=()=>{$$(".dash-tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");$$(".dash-panel").forEach(p=>p.classList.remove("active"));$("#tab-"+btn.dataset.tab)?.classList.add("active");if(btn.dataset.tab==="requests")renderRequests();if(btn.dataset.tab==="projects")renderAdminProjects()});
+$$(".switch").forEach(s=>s.onclick=()=>{s.classList.toggle("on");settings[s.dataset.setting]=s.classList.contains("on");save("sabin_settings",settings);applySettings()});
+updateRequestCount();
