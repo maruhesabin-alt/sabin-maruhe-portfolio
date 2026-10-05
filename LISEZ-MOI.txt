@@ -1,0 +1,23 @@
+PORTFOLIO — SABIN MARUHE
+
+PRÉVISUALISER AVEC VS CODE + LIVE SERVER
+1. Décompressez ce zip.
+2. VS Code > Fichier > Ouvrir un dossier > "portfolio-sabin-maruhe".
+3. Clic droit sur index.html > "Open with Live Server".
+
+ESPACE ADMIN
+Lien "Admin" en bas de page. Code actuel : ETIMARKI#981170238 (modifiable dans l'admin).
+Vous pouvez changer tous les textes, les images (profil + projets) et l'e-mail de contact.
+
+IMPORTANT — SAUVEGARDE UNIVERSELLE
+Ce fichier est AUSSI publié en ligne, à cette adresse :
+https://claude.ai/artifact/65GVezBfCUHDbcieZRgGv2
+Les modifications faites dans l'admin ne deviennent visibles par TOUS les visiteurs,
+sur n'importe quel appareil, que lorsqu'elles sont enregistrées depuis CE lien publié
+(pas depuis Live Server en local, qui sert seulement à prévisualiser la mise en page).
+Donc pour modifier le vrai site : ouvrez le lien ci-dessus, pas le fichier local.
+
+À COMPLÉTER
+- L'e-mail de contact est vide (le formulaire de contact ne fonctionnera pas tant
+  qu'il n'est pas renseigné dans l'admin).
+- 5 projets sont affichés pour l'instant ; vous pouvez en ajouter d'autres plus tard.
