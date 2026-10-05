@@ -1,4 +1,4 @@
-PORTFOLIO — SABIN MARUHE
+PORTFOLIO — SABIN MARUHE (v2 — Esperanto / Français)
 
 PRÉVISUALISER AVEC VS CODE + LIVE SERVER
 1. Décompressez ce zip.
@@ -7,17 +7,31 @@ PRÉVISUALISER AVEC VS CODE + LIVE SERVER
 
 ESPACE ADMIN
 Lien "Admin" en bas de page. Code actuel : ETIMARKI#981170238 (modifiable dans l'admin).
-Vous pouvez changer tous les textes, les images (profil + projets) et l'e-mail de contact.
+Vous pouvez modifier textes (EO+FR), couleurs, catégories, ajouter/supprimer des projets,
+remplacer les images, et changer le code.
 
-IMPORTANT — SAUVEGARDE UNIVERSELLE
-Ce fichier est AUSSI publié en ligne, à cette adresse :
+LANGUE PAR DÉFAUT : Esperanto. Sélecteur EO/FR en haut à droite.
+
+IMPORTANT — SYNCHRONISATION UNIVERSELLE
+Ce fichier est AUSSI publié en ligne :
 https://claude.ai/artifact/65GVezBfCUHDbcieZRgGv2
-Les modifications faites dans l'admin ne deviennent visibles par TOUS les visiteurs,
-sur n'importe quel appareil, que lorsqu'elles sont enregistrées depuis CE lien publié
-(pas depuis Live Server en local, qui sert seulement à prévisualiser la mise en page).
-Donc pour modifier le vrai site : ouvrez le lien ci-dessus, pas le fichier local.
+Le bouton "SINKRONIGU" ne rend vos modifications visibles par TOUS les visiteurs,
+partout, que lorsqu'il est utilisé depuis CE lien publié (pas depuis Live Server,
+qui sert seulement à prévisualiser localement). Pour modifier le vrai site,
+ouvrez le lien ci-dessus.
 
-À COMPLÉTER
-- L'e-mail de contact est vide (le formulaire de contact ne fonctionnera pas tant
-  qu'il n'est pas renseigné dans l'admin).
-- 5 projets sont affichés pour l'instant ; vous pouvez en ajouter d'autres plus tard.
+LIMITES HONNÊTES À CONNAÎTRE
+- Le formulaire KUNLABORU : les messages de visiteurs connectés à un compte Claude
+  arrivent dans l'admin ; les autres visiteurs reçoivent automatiquement une
+  ouverture d'e-mail pré-rempli vers vous (dès que votre e-mail est renseigné
+  dans l'admin), pour qu'aucune demande ne soit jamais perdue.
+- Pas de vrai compteur de visiteurs : aucun outil d'analyse externe ne peut être
+  chargé sur cette page (restriction de la plateforme), donc aucun chiffre n'est
+  inventé. Un badge "EN LIGNE" simple est affiché à la place.
+- 11 projets sont en ligne pour l'instant (5 précédents + 4 nouveaux identifiés
+  dans votre zip : Goga Karanga, Qahala, Juice Plug, Unicorn Strength). Le zip
+  contenait aussi ~20 photos sans nom clair (aaaaaa.jpg, dates, etc.) : je ne les
+  ai pas ajoutées pour éviter d'inclure par erreur un doublon ou un test. Dites-moi
+  lesquelles garder et je les ajoute en galerie Fotografio.
+- "Modifier les animations" = quelques réglages simples pour l'instant (couleurs),
+  pas un éditeur d'animation complet.
