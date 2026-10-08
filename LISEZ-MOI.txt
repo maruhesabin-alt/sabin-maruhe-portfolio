@@ -1,35 +1,17 @@
-PORTFOLIO — SABIN MARUHE (v4 — contact direct WhatsApp/Telegram/E-mail)
+PORTFOLIO — SABIN MARUHE (v6)
 
-PRÉVISUALISER AVEC VS CODE + LIVE SERVER
-1. Décompressez ce zip.
-2. VS Code > Fichier > Ouvrir un dossier > "portfolio-sabin-maruhe".
-3. Clic droit sur index.html > "Open with Live Server".
+Live Server : décompressez, ouvrez le dossier dans VS Code, clic droit sur
+index.html > "Open with Live Server".
 
-NOUVEAU DANS CETTE VERSION
-- Le formulaire KUNLABORU demande maintenant à propos de quel projet (liste des
-  26 projets), puis, après le message, propose de choisir WhatsApp, Telegram ou
-  E-mail : au clic sur "SENDU/ENVOYER", l'app correspondante s'ouvre chez le
-  visiteur avec le message déjà rédigé, prêt à envoyer — vers vos vrais comptes.
-- Icônes Facebook, TikTok, WhatsApp, Telegram en bas de chaque page.
-- Vos coordonnées sont déjà configurées (modifiables dans l'admin) :
-  E-mail maruhesabin80@gmail.com, WhatsApp +243845360603, Telegram +243990984275,
-  Facebook Sbn.mediaz, TikTok @sabin.maruhe.esperanto.
+NOUVEAU
+- Anglais ajouté (EO par défaut / FR / EN).
+- J'aime : nombres variés par projet (plus réaliste), toujours animés et partagés.
+- Compteur "👁" de visites réelles (jamais inventé — masqué s'il ne peut pas lire
+  de vraie donnée).
+- +60 projets réalisés / +100 clients satisfaits (avec le "+").
+- Grille : 2 projets/ligne sur téléphone, 4/ligne sur ordinateur ; images plus
+  grandes.
+- Espéranto relu et corrigé (dizajno, muntisto, kino, etc.).
 
-ESPACE ADMIN : lien "Admin" en bas de page, code ETIMARKI#981170238.
-
-IMPORTANT — PUBLICATION EN LIGNE
-Ce fichier correspond à ce qui sera publié sur :
-https://claude.ai/artifact/65GVezBfCUHDbcieZRgGv2
-Le lien affiche encore une version antérieure pour l'instant ; la mise à jour se
-publiera automatiquement dès votre prochain message à Claude (aucune action de
-votre part nécessaire) — c'est une règle de synchronisation de la plateforme,
-pas un problème avec le site.
-
-RÉPONSE À VOS QUESTIONS SUR LA SYNCHRONISATION (voir aussi le message de Claude) :
-- Contenu (textes, images, couleurs) modifié dans l'admin + SINKRONIGU : oui,
-  visible par tout le monde, partout, immédiatement.
-- Admin accessible depuis n'importe quel appareil connecté à internet, avec le
-  même code.
-- Messages des visiteurs : avec cette version, ils n'ont plus besoin de passer
-  par une base de données — ils arrivent directement dans votre vrai WhatsApp,
-  Telegram ou e-mail, exactement comme si la personne vous écrivait elle-même.
+Lien en ligne : https://claude.ai/artifact/65GVezBfCUHDbcieZRgGv2
+(se mettra à jour automatiquement à votre prochain message)
